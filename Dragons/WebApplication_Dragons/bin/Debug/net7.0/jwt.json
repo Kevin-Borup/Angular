@@ -1,0 +1,8 @@
+{
+  "Jwt": {
+    "Issuer": "DragonServer",
+    "Audience": "DragonsInn",
+    "Subject":  "AccessToken",
+    "Key": "9ETVQM9yEkl9xvjLvTHe9AdWHG2scL2KX4h15m5HJRr9hj99vtSthAGXo37kNLsdfsdfwerasdaw213"
+  }
+}
