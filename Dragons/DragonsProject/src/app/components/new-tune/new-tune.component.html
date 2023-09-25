@@ -1,0 +1,34 @@
+<mat-toolbar id="subToolbar" color="accent">
+  <h3>Submit new tune</h3>
+</mat-toolbar>
+<div>
+  <form [formGroup]="newTuneData" (ngSubmit)="onNewTuneSubmit()">
+    <mat-form-field>
+      <mat-label>Enter tune name</mat-label>
+      <input matInput formControlName='tuneName' [type]="'text'" required>
+    </mat-form-field>
+    <mat-label style="display: block;">Enter tune duration</mat-label>
+    <mat-form-field class="timeField">
+      <mat-label>Minutes</mat-label>
+      <mat-select [formControl]="timeMinControl" required style="display: flow">
+        <mat-option *ngFor="let num of timeTicks" [value]="num">
+          {{num}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="timeMinControl.hasError('required')">Select minutes</mat-error>
+    </mat-form-field>
+    <mat-form-field style="display: inline-block" class="timeField">
+      <mat-label>Seconds</mat-label>
+      <mat-select [formControl]="timeSecControl" required>
+        <mat-option *ngFor="let num of timeTicks" [value]="num">
+          {{num}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="timeSecControl.hasError('required')">Select seconds</mat-error>
+    </mat-form-field>
+
+    <button color="primary" type="Submit" style="display: block" [disabled]="!newTuneData.valid" mat-raised-button>Submit Tune</button>
+  </form>
+</div>
+
+

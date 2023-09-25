@@ -1,0 +1,20 @@
+<mat-toolbar id="subToolbar" color="accent">
+  <h3>Login</h3>
+</mat-toolbar>
+<div>
+  <form [formGroup]="loginData" (ngSubmit)="onLoginSubmit()">
+    <mat-form-field>
+      <mat-label>Enter your username</mat-label>
+      <input matInput formControlName="username" [type]="'text'" required>
+    </mat-form-field>
+    <mat-form-field class="formPass">
+      <mat-label>Enter your password</mat-label>
+      <input matInput formControlName="password" [type]="hidePass ? 'password' : 'text'" required>
+      <button mat-icon-button matSuffix (click)="hidePass = !hidePass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePass">
+        <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button color="primary" type="Submit" [disabled]="!loginData.valid" mat-raised-button>Login</button>
+  </form>
+</div>

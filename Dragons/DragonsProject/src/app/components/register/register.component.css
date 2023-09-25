@@ -1,0 +1,9 @@
+mat-form-field {
+  margin-right: 20px;
+  max-width: 20%;
+}
+
+.formPass {
+  display: block;
+  padding-top: 20px;
+}

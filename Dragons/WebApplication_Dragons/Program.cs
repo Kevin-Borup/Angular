@@ -20,6 +20,17 @@ namespace WebApplication_Dragons
             builder.ConfigureSwaggerGenWithAuthentication();
             builder.ConfigureAuthentication();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin();
+                        policy.AllowAnyMethod();
+                        policy.AllowAnyHeader();
+                    });
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -33,6 +44,8 @@ namespace WebApplication_Dragons
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors();
 
             app.UseAuthorization();
             app.UseAuthentication();

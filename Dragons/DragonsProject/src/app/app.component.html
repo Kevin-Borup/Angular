@@ -1,21 +1,41 @@
 <div id="page-wrapper">
-  <div id="menu-wrapper">
-    <nav>
-      <div>
-        <p>test1</p>
-        <p>test2</p>
-        <p>test3</p>
-      </div>
-    </nav>
+  <div id="box-wrapper">
   </div>
   <div id="head-wrapper">
-    <header>
+    <mat-toolbar color="primary">
       <h1>Dragons Inn</h1>
-    </header>
+    </mat-toolbar>
   </div>
+  <div id="menu-wrapper">
+    <nav>
+      <mat-list>
+        <mat-list-item>
+          <button color="primary" routerLink="register" mat-raised-button>
+            Register
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button color="primary" routerLink="login" mat-raised-button>
+            Login
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button color="primary" routerLink="tunes" mat-raised-button>
+            Tunes
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <button color="primary" routerLink="newTune" mat-raised-button>
+            Submit Tune
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </nav>
+  </div>
+
   <main id="main-wrapper">
-    <p>Body</p>
+    <router-outlet></router-outlet>
   </main>
 </div>
 
-<router-outlet></router-outlet>
+
