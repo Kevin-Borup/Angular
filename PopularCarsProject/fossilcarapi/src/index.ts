@@ -1,4 +1,4 @@
-import * as dotenv from "dotenv";
+ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
@@ -9,7 +9,8 @@ if (!process.env.PORT) {
     process.exit(1);
 }
 
-const PORT: number = parseInt(process.env.PORT as string, 10);
+ const PORT: number = parseInt(process.env.PORT as string, 10);
+ const HOST: string = process.env.HOST as string;
 
 const app = express();
 
@@ -49,6 +50,6 @@ app.get("api/cars", (req, res) => {
     res.json(cars);
 });
 
-app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+app.listen(PORT, HOST, () => {
+    console.log(`Listening on ${HOST}:${PORT}`);
 });

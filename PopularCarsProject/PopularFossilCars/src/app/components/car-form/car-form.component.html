@@ -1,1 +1,19 @@
-<p>car-form works!</p>
+<form [formGroup]="newCarDataGroup" (ngSubmit)="onSubmitCar()">
+  <mat-form-field>
+    <mat-label>Enter model name</mat-label>
+    <input matInput [formControl]="modelControl">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Enter model counts</mat-label>
+    <input matInput [formControl]="countControl">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Enter model adjustments</mat-label>
+    <input matInput [formControl]="adjustmentControl">
+  </mat-form-field>
+
+  <button mat-button type="submit" [disabled]="!newCarDataGroup.valid">Add car</button>
+</form>
+
