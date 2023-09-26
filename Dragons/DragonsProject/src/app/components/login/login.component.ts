@@ -23,7 +23,10 @@ export class LoginComponent {
   }
 
   onLoginSubmit() {
+    console.log("loginSubmitStart");
     if (this.formValid()) {
+      console.log("loginSubmitStart");
+
       let username: string = this.loginData.get('username')?.value;
       let password: string = this.loginData.get('password')?.value;
 

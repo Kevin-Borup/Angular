@@ -22,14 +22,14 @@ export class DragonApiService {
 
   fetchDragonTunes(): Observable<Tune[]> {
     let headers: HttpHeaders = new HttpHeaders();
-    headers.set("Authorization", "Bearer" + this.jwtToken);
+    headers.set("Authorization", "Bearer " + this.jwtToken);
 
     return this.httpClient.get<Tune[]>(this.url + this.endpointTunes, {headers});
   }
 
   submitNewDragonTune(newTune: Tune) {
     let headers: HttpHeaders = new HttpHeaders();
-    headers.set("Authorization", "Bearer" + this.jwtToken);
+    headers.set("Authorization", "Bearer " + this.jwtToken);
 
     let httpUrlParams: string = `?Name=${newTune.name}&Duration=${newTune.duration}`;
     let response = this.httpClient.post(this.url + this.endpointSubmitNewTune + httpUrlParams, "", {headers});
@@ -41,15 +41,21 @@ export class DragonApiService {
     let httpUrlParams: string = `?Username=${newAccount.username}&Password=${newAccount.password}&role=${role}`;
     console.log("urlParams - " + httpUrlParams);
 
-    this.httpClient.post(this.url + this.endpointRegister + httpUrlParams, "", {headers: {'Content-Type':'application/json; charset=utf-8'}}).subscribe((value) => {
+    this.httpClient.post(
+      this.url + this.endpointRegister + httpUrlParams, "",
+      {headers: {'Content-Type':'application/json; charset=utf-8'}})
+      .subscribe((value) => {
       console.log(value);
     });
 
   }
 
   submitLogin(login: Account){
+    console.log("submitLoginApi")
     let httpUrlParams: string = `?Username=${login.username}&Password=${login.password}`;
+    console.log(httpUrlParams);
+
     let response: Observable<Token> = this.httpClient.get<Token>(this.url + this.endpointLogin + httpUrlParams);
-    // this.jwtToken = response.
+    // this.jwtToken = response. 
   }
 }
