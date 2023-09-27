@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Car} from "./interfaces/car";
 import {CarApiService} from "./services/car-api.service";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,14 @@ import {CarApiService} from "./services/car-api.service";
 })
 export class AppComponent {
   title = 'PopularFossilCars';
-  cars: Car[] = []
+
+
   constructor(private carApi: CarApiService) {
-    carApi.fetchAllCars().subscribe(
-      (fetchedCars) => this.cars = fetchedCars
-    );
+
+
+    carApi.fetchAllCars().subscribe(car => {
+      this.cars$.next(car);
+    });
   }
 
   displayedColumns: string[] = ['model', 'count', 'adjustment', 'delete'];

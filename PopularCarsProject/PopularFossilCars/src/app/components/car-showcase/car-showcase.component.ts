@@ -22,7 +22,4 @@ export class CarShowcaseComponent {
   compareCar(carA: Car, carB: Car) {
     return carA.model == carB.model && carA.count == carB.count && carA.adjustment == carB.adjustment;
   }
-
-
-
 }

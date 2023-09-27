@@ -18,10 +18,11 @@ export class CarFormComponent {
   adjustmentControl: FormControl = new FormControl<number>(0, Validators.required);
 
   constructor() {
-    this.newCarDataGroup = new FormGroup<any>({});
-    this.newCarDataGroup.addControl('model', this.modelControl);
-    this.newCarDataGroup.addControl('count', this.countControl);
-    this.newCarDataGroup.addControl('adjustment', this.adjustmentControl);
+    this.newCarDataGroup = new FormGroup<any>({
+      model: this.modelControl,
+      count: this.countControl,
+      adjustment: this.adjustmentControl
+    });
   }
 
 
