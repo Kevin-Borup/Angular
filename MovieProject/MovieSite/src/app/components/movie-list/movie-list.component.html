@@ -1,23 +1,40 @@
-<table mat-table [dataSource]="movies">
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef> Model. </th>
-    <td mat-cell *matCellDef="let movie"> {{movie.model}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="releaseDate">
-    <th mat-header-cell *matHeaderCellDef> Count </th>
-    <td mat-cell *matCellDef="let movie"> {{movie.releaseDate}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="delete">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let row">
-      <button mat-fab color="primary" (click)="DeleteMovie(row)">
+<div>
+  <mat-card *ngFor="let movie of movies">
+    <img mat-card-image src="https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZL5P7W/image?locale=da-dk&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg">
+    <mat-card-header>{{movie.title}}</mat-card-header>
+    <mat-card-subtitle>{{movie.releaseDate}}</mat-card-subtitle>
+    <mat-card-actions *ngIf="authenticated">
+      <button mat-mini-fab>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <span></span>
+      <button mat-mini-fab>
         <mat-icon>delete</mat-icon>
       </button>
-    </td>
-  </ng-container>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<!--<table mat-table bgcolor="primary" [dataSource]="movies">-->
+<!--  <ng-container matColumnDef="title">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Title </th>-->
+<!--    <td mat-cell *matCellDef="let movie"> {{movie.title}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="releaseDate">-->
+<!--    <th mat-header-cell *matHeaderCellDef> Release Date </th>-->
+<!--    <td mat-cell *matCellDef="let movie"> {{movie.releaseDate}} </td>-->
+<!--  </ng-container>-->
+
+<!--  <ng-container matColumnDef="delete">-->
+<!--    <th mat-header-cell *matHeaderCellDef></th>-->
+<!--    <td mat-cell *matCellDef="let row">-->
+<!--      <button  mat-fab color="primary" (click)="DeleteMovie(row)">-->
+<!--        <mat-icon>delete</mat-icon>-->
+<!--      </button>-->
+<!--    </td>-->
+<!--  </ng-container>-->
+
+<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
+<!--</table>-->

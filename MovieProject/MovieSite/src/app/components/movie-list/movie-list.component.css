@@ -1,0 +1,30 @@
+div {
+  margin: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  /*overflow-x: auto;*/
+}
+
+mat-card {
+  width:13%;
+  background-color: #414141;
+  margin: 0 30px 20px 30px;
+    padding-bottom: 20px;
+}
+
+mat-card > mat-card-header {
+  margin: auto;
+  color: #dadada;
+  font-size: 16px;
+}
+
+mat-card > mat-card-subtitle {
+    margin: auto;
+    color: #bcbcbc;
+    font-style: italic;
+    font-size: 13px;
+}
+
+span {
+  flex: 1 1 auto;
+}

@@ -10,11 +10,12 @@ import {Movie} from "../../interfaces/movie";
 export class MovieListComponent {
   displayedColumns: string[] = ['title', 'releaseDate', 'delete'];
   movies: Movie[] = [];
+  authenticated: boolean = false;
 
   constructor(private movieService: MovieService) {
     this.movieService.fetchAllMovies();
 
-    this,movieService.movies$.subscribe(mov =>{
+    this.movieService.movies$.subscribe(mov =>{
       this.movies = mov;
     });
   }

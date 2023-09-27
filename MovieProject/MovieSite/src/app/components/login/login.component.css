@@ -1,0 +1,12 @@
+form {
+  margin: auto;
+  margin-top: 100px;
+  justify-content: center;
+  justify-self: center;
+}
+
+form > * {
+  margin: auto;
+  display: block;
+  max-width: 20%;
+}

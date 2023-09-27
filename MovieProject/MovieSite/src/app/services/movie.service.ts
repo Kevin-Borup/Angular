@@ -16,7 +16,7 @@ export class MovieService {
   constructor(private httpClient: HttpClient) { }
 
   fetchAllMovies() {
-    this.httpClient.get<Movie[]>(this.url, {headers: this.getToken()}).subscribe(mov => {
+    this.httpClient.get<Movie[]>(this.url).subscribe(mov => {
       this.movieSubject$.next(mov);
     })
   }

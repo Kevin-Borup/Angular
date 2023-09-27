@@ -42,6 +42,37 @@ namespace CertificateAndTokenApi.Services
                     Title = "Iron Man",
                     ReleaseDate = "03/15/2004"
                 });
+                movies.Add(new MovieDto
+                {
+                    Id = "5",
+                    Title = "Iron Man",
+                    ReleaseDate = "03/15/2004"
+                });
+                movies.Add(new MovieDto
+                {
+                    Id = "5",
+                    Title = "Iron Man",
+                    ReleaseDate = "03/15/2004"
+                });
+                movies.Add(new MovieDto
+                {
+                    Id = "5",
+                    Title = "Iron Man",
+                    ReleaseDate = "03/15/2004"
+                });
+                movies.Add(new MovieDto
+                {
+                    Id = "5",
+                    Title = "Iron Man",
+                    ReleaseDate = "03/15/2004"
+                });
+                movies.Add(new MovieDto
+                {
+                    Id = "5",
+                    Title = "Iron Man",
+                    ReleaseDate = "03/15/2004"
+                });
+
             }
 
             return movies;

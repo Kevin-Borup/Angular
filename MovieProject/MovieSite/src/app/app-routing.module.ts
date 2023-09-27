@@ -7,7 +7,7 @@ import {LoginComponent} from "./components/login/login.component";
 
 const routes: Routes = [
   {path: '', component: MovieListComponent},
-  {path: 'details', component: MovieDetailsComponent},
+  {path: 'details', component: MovieDetailsComponent}, //Use AuthGuard
   {path: 'login', component: LoginComponent}
 ];
 

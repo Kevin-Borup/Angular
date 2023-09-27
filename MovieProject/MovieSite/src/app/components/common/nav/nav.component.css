@@ -1,3 +1,53 @@
 span {
   flex: 1 1 auto;
 }
+
+a {
+  margin-right: 5%;
+}
+
+.navButton {
+  border-radius: 0;
+  height: 70%;
+  margin-top: auto;
+  margin-bottom: 0;
+
+  background: transparent;
+  border: none;
+  display: block;
+  font-size: 17px;
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.navButton:before {
+  content: '';
+  border-bottom: 2px solid #414141;
+  padding: 0 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  transition: 0.3s;
+}
+
+.navButton:hover:before {
+  width: 100%;
+  padding: 0; /* the other part of the trick*/
+}
+
+.navButton:active {
+  background: black;
+  color: white;
+  transition: none;
+}
+
+.navButton > span {
+  text-decoration-color: #414141;
+  color: #414141;
+}
+
+

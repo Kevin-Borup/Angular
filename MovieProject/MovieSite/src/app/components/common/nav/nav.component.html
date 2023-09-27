@@ -1,9 +1,19 @@
 <mat-toolbar color="primary">
-  <button mat-button>
-    <img routerLink="" src="/assets/logo.png" alt="image">
+  <a routerLink="">
+    <img  src="/assets/logo.png" alt="image">
+  </a>
+
+  <button class="navButton" color="primary" routerLink="" mat-raised-button>
+    <span>Movies</span>
+  </button>
+  <button class="navButton" color="primary" routerLink="" mat-raised-button>
+    <span>Series</span>
+  </button>
+  <button class="navButton" color="primary" routerLink="" mat-raised-button>
+    <span>Genres</span>
   </button>
   <span class="spacer"></span>
-  <button routerLink="login" mat-raised-button>
-    <mat-label>Login</mat-label>
+  <button color="accent" routerLink="login" mat-raised-button>
+    <span>Login</span>
   </button>
 </mat-toolbar>
