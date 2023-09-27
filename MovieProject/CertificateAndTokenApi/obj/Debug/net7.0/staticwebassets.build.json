@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pshT0IBSO/ejQ5oGhTR1mJz6wNrGXcEhxskhxUexO/s=",
+  "Source": "CertificateAndTokenApi",
+  "BasePath": "_content/CertificateAndTokenApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

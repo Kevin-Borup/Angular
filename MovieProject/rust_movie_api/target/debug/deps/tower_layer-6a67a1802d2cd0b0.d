@@ -1,0 +1,11 @@
+C:\ZBC Data-Kommunikation\H3\Angular\MovieProject\rust_movie_api\target\debug\deps\tower_layer-6a67a1802d2cd0b0.rmeta: C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\lib.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\identity.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\layer_fn.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\stack.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\tuple.rs
+
+C:\ZBC Data-Kommunikation\H3\Angular\MovieProject\rust_movie_api\target\debug\deps\libtower_layer-6a67a1802d2cd0b0.rlib: C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\lib.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\identity.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\layer_fn.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\stack.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\tuple.rs
+
+C:\ZBC Data-Kommunikation\H3\Angular\MovieProject\rust_movie_api\target\debug\deps\tower_layer-6a67a1802d2cd0b0.d: C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\lib.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\identity.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\layer_fn.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\stack.rs C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\tuple.rs
+
+C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\lib.rs:
+C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\identity.rs:
+C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\layer_fn.rs:
+C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\stack.rs:
+C:\Users\Kevin\.cargo\registry\src\index.crates.io-6f17d22bba15001f\tower-layer-0.3.2\src\tuple.rs:

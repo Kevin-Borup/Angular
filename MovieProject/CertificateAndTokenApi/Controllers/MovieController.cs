@@ -17,7 +17,7 @@ namespace CertificateAndTokenApi.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         public IActionResult Get()
         {
             return Ok(_movieService.GetMovies());
