@@ -15,10 +15,10 @@ async fn main() {
         .unwrap();
 }
 
-
-
 // which calls one of these handlers
 async fn root() {}
-async fn get_foo() {}
+async fn get_foo() -> &'static str {
+    "hello"
+}
 async fn post_foo() {}
 async fn foo_bar() {}

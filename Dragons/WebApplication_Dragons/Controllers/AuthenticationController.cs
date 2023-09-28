@@ -68,7 +68,7 @@ namespace WebApplication_Dragons.Controllers
             var issuer = _config["Jwt:Issuer"];
             var audience = _config["Jwt:Audience"];
             var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
-            var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature);
+            var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
 
             List<Claim> claims = new List<Claim>();
 
@@ -80,7 +80,7 @@ namespace WebApplication_Dragons.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddMinutes(10),
+                Expires = DateTime.Now.AddMinutes(10),
                 Issuer = issuer,
                 Audience = audience,
                 SigningCredentials = signingCredentials

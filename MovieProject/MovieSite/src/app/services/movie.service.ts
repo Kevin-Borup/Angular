@@ -9,27 +9,30 @@ import {BehaviorSubject, Observable, Subject} from "rxjs";
 })
 export class MovieService {
   url: string = environment.config.apiUrl + "/api/Movie";
-  private movies: Movie[] = [];
-  private movieSubject$: Subject<Movie[]> = new BehaviorSubject<Movie[]>(this.movies);
-  movies$: Observable<Movie[]> = this.movieSubject$.asObservable();
+
+  private moviesSubject$: Subject<Movie[]> = new BehaviorSubject<Movie[]>([]);
+  movies$: Observable<Movie[]> = this.moviesSubject$.asObservable();
+
+  private movieDetailsSubject$: Subject<Movie> = new BehaviorSubject<Movie>({id: "", title: "", releaseDate: ""});
+  movieDetails$: Observable<Movie> = this.movieDetailsSubject$.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
   fetchAllMovies() {
     this.httpClient.get<Movie[]>(this.url).subscribe(mov => {
-      this.movieSubject$.next(mov);
+      this.moviesSubject$.next(mov);
     })
   }
 
   updateMovie(movie: Movie) {
     this.httpClient.put<Movie[]>(this.url, movie, {headers: this.getToken()}).subscribe(x => {
-      this.movieSubject$.next(x);
+      this.moviesSubject$.next(x);
     });
   };
 
   deleteMovie(movie: Movie) {
     this.httpClient.delete<Movie[]>(this.url + '/' + movie.id, {headers: this.getToken()}).subscribe(x => {
-      this.movieSubject$.next(x);
+      this.moviesSubject$.next(x);
     });
   };
 

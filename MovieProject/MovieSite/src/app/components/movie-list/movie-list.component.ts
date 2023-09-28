@@ -25,7 +25,11 @@ export class MovieListComponent {
     });
   }
 
-  DeleteMovie(movie: Movie) {
+  onEditClick(movie: Movie){
+
+  }
+
+  onDeleteClick(movie: Movie) {
     this.movieService.deleteMovie(movie);
   };
 }
