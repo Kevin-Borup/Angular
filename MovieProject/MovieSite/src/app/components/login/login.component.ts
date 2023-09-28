@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthenticationService} from "../../services/authentication.service";
+import {Login} from "../../interfaces/login";
 
 @Component({
   selector: 'app-login',
@@ -16,16 +18,13 @@ export class LoginComponent {
     password: this.password
   });
 
-  isFormValid(){
-    return this.username.valid && this.password.valid;
+  constructor(private authService: AuthenticationService) {
   }
 
   onLoginSubmit() {
-    if (this.isFormValid()){
-      let user = this.username.value;
-      let pass = this.password.value;
-
-
+    if (this.loginGroup.valid){
+      let login: Login = { username: this.username.value, password: this.password.value};
+      this.authService.acquireToken(login);
     }
   }
 }

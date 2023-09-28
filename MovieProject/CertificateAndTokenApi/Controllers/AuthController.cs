@@ -19,7 +19,7 @@ namespace CertificateAndTokenApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] LoginDto request)
+        public IActionResult Login([FromBody] LoginDto request)
         {
             if (_userService.CheckLogin(request))
             {

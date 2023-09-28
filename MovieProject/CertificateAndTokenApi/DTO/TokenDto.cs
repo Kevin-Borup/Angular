@@ -2,8 +2,8 @@
 {
     public class TokenDto
     {
-        public string TokenString { get; set; }
+        public string Key { get; set; }
 
-        public int ExpiresIn { get; set; }
+        public int Expiration { get; set; }
     }
 }

@@ -71,8 +71,8 @@ namespace CertificateAndTokenApi.Services
 
             try
             {
-                newToken.TokenString = jwtSecurityTokenHandler.WriteToken(securityToken);
-                newToken.ExpiresIn = (int)tokenExpiresTime.Subtract(DateTime.Now).TotalSeconds;
+                newToken.Key = jwtSecurityTokenHandler.WriteToken(securityToken);
+                newToken.Expiration = (int)tokenExpiresTime.Subtract(DateTime.Now).TotalSeconds;
                 return newToken;
             }
             catch (Exception ex)

@@ -3,7 +3,7 @@
     <img mat-card-image src="https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZL5P7W/image?locale=da-dk&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg">
     <mat-card-header>{{movie.title}}</mat-card-header>
     <mat-card-subtitle>{{movie.releaseDate}}</mat-card-subtitle>
-    <mat-card-actions *ngIf="authenticated">
+    <mat-card-actions *ngIf="authenticated$ | async">
       <button mat-mini-fab>
         <mat-icon>edit</mat-icon>
       </button>
