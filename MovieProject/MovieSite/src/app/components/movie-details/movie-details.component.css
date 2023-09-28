@@ -1,0 +1,39 @@
+#image-wrapper {
+    grid-area: image;
+}
+
+#body-wrapper {
+    grid-area: body;
+}
+
+#page-wrapper {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "image body";
+}
+
+body {
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: 80%;
+    max-width: 500px;
+    max-height: 1000px;
+}
+
+h2 {
+    margin: auto;
+    color: #dadada;
+    font-size: 25px;
+}
+
+p {
+    margin: auto;
+    color: #bcbcbc;
+    font-size: 20px;
+}

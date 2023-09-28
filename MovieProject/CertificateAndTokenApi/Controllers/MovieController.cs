@@ -24,14 +24,14 @@ namespace CertificateAndTokenApi.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Mod")]
         public IActionResult Post([FromBody] MovieDto movie)
         {
             return Ok(_movieService.CreateMovie(movie));
         }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Mod")]
         public IActionResult Put([FromBody] MovieDto movie)
         {
             return Ok(_movieService.UpdateMovie(movie));

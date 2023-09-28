@@ -4,10 +4,11 @@ import {RouterModule, Routes} from "@angular/router";
 import {MovieListComponent} from "./components/movie-list/movie-list.component";
 import {MovieDetailsComponent} from "./components/movie-details/movie-details.component";
 import {LoginComponent} from "./components/login/login.component";
+import {roleGuard} from "./guards/role.guard";
 
 const routes: Routes = [
   {path: '', component: MovieListComponent},
-  {path: 'details', component: MovieDetailsComponent}, //Use AuthGuard
+  {path: 'details', component: MovieDetailsComponent, canActivate: [roleGuard], data: {requiredRole: "Mod"}},
   {path: 'login', component: LoginComponent}
 ];
 

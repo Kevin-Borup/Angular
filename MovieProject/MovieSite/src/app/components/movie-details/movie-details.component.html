@@ -1,1 +1,9 @@
-<p>movie-details works!</p>
+<body>
+    <div id="image-wrapper">
+        <img src="{{movie.imgSrc}}">
+    </div>
+    <div id="body-wrapper">
+        <h2>{{movie.title}}</h2>
+        <p [innerHTML]="movie.releaseDate | releaseRelevant"></p>
+    </div>
+</body>

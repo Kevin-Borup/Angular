@@ -1,14 +1,15 @@
 <div>
   <mat-card *ngFor="let movie of movies">
-    <img mat-card-image src="https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZL5P7W/image?locale=da-dk&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg">
+    <img mat-card-image src="{{movie.imgSrc}}}">
     <mat-card-header>{{movie.title}}</mat-card-header>
     <mat-card-subtitle>{{movie.releaseDate}}</mat-card-subtitle>
-    <mat-card-actions *ngIf="authenticated$ | async">
-      <button mat-mini-fab (click)="onEditClick({id: movie.id, title: movie.title, releaseDate: movie.releaseDate})">
+<!--    *ngIf="(systemRole$ | async) != SystemRole.Unauthorized"-->
+    <mat-card-actions *appIfMod="(systemRole$ | async) || SystemRole.Unauthorized">
+      <button mat-mini-fab (click)="onEditClick(movie)">
         <mat-icon>edit</mat-icon>
       </button>
       <span></span>
-      <button mat-mini-fab (click)="onEditClick({id: movie.id, title: movie.title, releaseDate: movie.releaseDate})" >
+      <button mat-mini-fab [disabled]="(systemRole$ | async) != SystemRole.Admin" (click)="onDeleteClick(movie)" >
         <mat-icon>delete</mat-icon>
       </button>
     </mat-card-actions>

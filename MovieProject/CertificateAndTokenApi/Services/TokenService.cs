@@ -16,7 +16,7 @@ namespace CertificateAndTokenApi.Services
             DateTime tokenExpiresTime = SetTokenExpiry();
             List<Claim> claims = new List<Claim> { GetRoleClaim(login) };
             SecurityTokenDescriptor securityTokenDescriptor = GetDescriptor(claims, tokenExpiresTime, tokenKey);
-            return AssignTokenProperties(securityTokenDescriptor, tokenExpiresTime);
+            return AssignTokenProperties(securityTokenDescriptor, tokenExpiresTime, claims[0].Value);
         }
 
         private byte[] GetTokenKey()
@@ -59,21 +59,28 @@ namespace CertificateAndTokenApi.Services
 
         private Claim GetRoleClaim(LoginDto login)
         {
-            // TODO: Get role from db instead
-            return new Claim(ClaimTypes.Role, "Admin");
+            string roleType = "Unauthorized";
+
+
+            if (login.username.ToLower().EndsWith("admin")) {
+                roleType = "Admin";
+            }
+            else if (login.username.ToLower().EndsWith("mod"))
+            {
+                roleType = "Mod";
+            }
+
+            return new Claim(ClaimTypes.Role, roleType); //Fallback security
         }
 
-        private TokenDto AssignTokenProperties(SecurityTokenDescriptor securityTokenDescriptor, DateTime tokenExpiresTime)
+        private TokenDto AssignTokenProperties(SecurityTokenDescriptor securityTokenDescriptor, DateTime tokenExpiresTime, string systemRole)
         {
-            TokenDto newToken = new TokenDto();
             JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken = jwtSecurityTokenHandler.CreateToken(securityTokenDescriptor);
 
             try
             {
-                newToken.Key = jwtSecurityTokenHandler.WriteToken(securityToken);
-                newToken.Expiration = (int)tokenExpiresTime.Subtract(DateTime.Now).TotalSeconds;
-                return newToken;
+                return new TokenDto(jwtSecurityTokenHandler.WriteToken(securityToken), (int)tokenExpiresTime.Subtract(DateTime.Now).TotalSeconds, systemRole);
             }
             catch (Exception ex)
             {

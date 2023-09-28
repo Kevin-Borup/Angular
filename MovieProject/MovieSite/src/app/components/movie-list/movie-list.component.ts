@@ -3,6 +3,8 @@ import {MovieService} from "../../services/movie.service";
 import {Movie} from "../../interfaces/movie";
 import {AuthenticationService} from "../../services/authentication.service";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
+import {SystemRole} from "../../services/SystemRole";
 
 @Component({
   selector: 'app-movie-list',
@@ -10,13 +12,14 @@ import {Observable} from "rxjs";
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent {
-  displayedColumns: string[] = ['title', 'releaseDate', 'delete'];
+  protected readonly SystemRole = SystemRole;
+
   movies: Movie[] = [];
-  authenticated$: Observable<boolean>;
+  systemRole$: Observable<SystemRole>;
 
 
-  constructor(private movieService: MovieService, private authService: AuthenticationService) {
-    this.authenticated$ = authService.authenticated$;
+  constructor(private movieService: MovieService, private authService: AuthenticationService, private router: Router) {
+    this.systemRole$ = authService.systemRole$;
 
     this.movieService.fetchAllMovies();
 
@@ -26,10 +29,12 @@ export class MovieListComponent {
   }
 
   onEditClick(movie: Movie){
-
+    this.movieService.setMovieDetail(movie);
+    this.router.navigate(["/details"]);
   }
 
   onDeleteClick(movie: Movie) {
     this.movieService.deleteMovie(movie);
   };
+
 }

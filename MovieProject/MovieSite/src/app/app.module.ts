@@ -19,6 +19,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ReleaseRelevantPipe } from './pipes/release-relevant.pipe';
+import { IfModDirective } from './directives/if-mod.directive';
+import { IfAdminDirective } from './directives/if-admin.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     FooterComponent,
     NavComponent,
     MovieDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    ReleaseRelevantPipe,
+    IfModDirective,
+    IfAdminDirective
   ],
   imports: [
     BrowserModule,

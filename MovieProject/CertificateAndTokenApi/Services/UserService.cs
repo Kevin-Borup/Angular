@@ -5,7 +5,10 @@ namespace CertificateAndTokenApi.Services
 {
     public class UserService : IUserService
     {
-        List<LoginDto> users = new List<LoginDto> { new LoginDto { username = "test", password = "Kode123" } };
+        List<LoginDto> users = new List<LoginDto> { 
+            new LoginDto { username = "test-admin", password = "Kode123" } ,
+            new LoginDto { username = "test-mod", password = "Kode123"}
+        };
 
         public UserService() { }
 

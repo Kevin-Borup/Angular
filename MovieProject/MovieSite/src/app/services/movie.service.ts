@@ -13,10 +13,14 @@ export class MovieService {
   private moviesSubject$: Subject<Movie[]> = new BehaviorSubject<Movie[]>([]);
   movies$: Observable<Movie[]> = this.moviesSubject$.asObservable();
 
-  private movieDetailsSubject$: Subject<Movie> = new BehaviorSubject<Movie>({id: "", title: "", releaseDate: ""});
+  private movieDetailsSubject$: Subject<Movie> = new BehaviorSubject<Movie>({id: "", title: "", releaseDate: "", imgSrc: ""});
   movieDetails$: Observable<Movie> = this.movieDetailsSubject$.asObservable();
 
   constructor(private httpClient: HttpClient) { }
+
+  setMovieDetail(movie: Movie){
+    this.movieDetailsSubject$.next(movie);
+  }
 
   fetchAllMovies() {
     this.httpClient.get<Movie[]>(this.url).subscribe(mov => {
