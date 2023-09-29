@@ -1,10 +1,43 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$MovieSite-primary: mat.define-palette(mat.$indigo-palette);
+$MovieSite-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$MovieSite-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$MovieSite-theme: mat.define-light-theme((
+  color: (
+    primary: $MovieSite-primary,
+    accent: $MovieSite-accent,
+    warn: $MovieSite-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($MovieSite-theme);
+
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
 * Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzIxMjAyMSIsIj9lcjwjYmNiY2JjIiwiO2VyPCMxNDEzMTR$LCIlPmBePCNhNTJiMmIiLCI~ZXI8I2U0YmZiZiIsIjtlcjwjOGExYTFhfiwid2Fybj5gXjwjZmI5MzFiIiwiP2VyPCNmZWRmYmIiLCI7ZXI8I2Y5NzYxMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZjFmMWYxIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyYzJjMmN$LCJmb250cz5bYEA8KC00IiwiZmFtaWx5PEFsZWZ$LGBAPCgtMyIsImZhbWlseTxBbGVmfixgQDwoLTIiLCJmYW1pbHk8QWxlZn4sYEA8KC0xIiwiZmFtaWx5PEFsZWZ$LGBAPGhlYWRsaW5lIiwiZmFtaWx5PEFsZWZ$LGBAPHRpdGxlIiwiZmFtaWx5PEFsZWYiLCJzaXplPjI1LCJzcGFjaW5nPjF9LGBAPHN1YiktMiIsImZhbWlseTxBbGVmfixgQDxzdWIpLTEiLCJmYW1pbHk8QWxlZn4sYEA8Ym9keS0yIiwiZmFtaWx5PEFsZWZ$LGBAPGJvZHktMSIsImZhbWlseTxBbGVmfixgQDxidXR0b24iLCJmYW1pbHk8QWxlZn4sYEA8Y2FwdGlvbiIsImZhbWlseTxBbGVmfixgQDxpbnB1dCIsImZhbWlseTxBbGVmIiwic2l6ZT5udWxsfV0sImljb25zPEZpbGxlZCIsIj9uZXNzPmZhbHNlLCJ2ZXJzaW9uPjEzfQ==
 */
-
-@use '@angular/material' as mat;
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
