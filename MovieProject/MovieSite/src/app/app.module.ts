@@ -20,8 +20,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ReleaseRelevantPipe } from './pipes/release-relevant.pipe';
-import { IfModDirective } from './directives/if-mod.directive';
-import { IfAdminDirective } from './directives/if-admin.directive';
+import { IfRoleDirective } from './directives/if-role.directive';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { IfAdminDirective } from './directives/if-admin.directive';
     MovieDetailsComponent,
     LoginComponent,
     ReleaseRelevantPipe,
-    IfModDirective,
-    IfAdminDirective
+    IfRoleDirective
   ],
   imports: [
     BrowserModule,

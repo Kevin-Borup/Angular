@@ -1,21 +1,29 @@
 import {Directive, inject, Input, TemplateRef, ViewContainerRef} from '@angular/core';
 import {SystemRole} from "../services/SystemRole";
+import {Observable} from "rxjs";
 
 @Directive({
-  selector: '[appIfMod]'
+  selector: '[appIfRole]'
 })
-export class IfModDirective {
+export class IfRoleDirective {
+
   private hasView = false;
 
   private viewContainer = inject(ViewContainerRef);
   private templateRef = inject(TemplateRef<any>);
 
-  private requiredRole: SystemRole = SystemRole.Mod;
-
   constructor() {}
 
-  @Input() set appIfMod(userRole: SystemRole) {
-    let isModOrHigher = userRole >= this.requiredRole;
+  @Input() requiredRole: SystemRole = SystemRole.Mod;
+
+  @Input() set appIfRole(userRole: Observable<SystemRole>) {
+    let currentRole: SystemRole = SystemRole.Unauthorized;
+
+    userRole.subscribe(role => {
+      currentRole = role;
+    });
+
+    let isModOrHigher = currentRole >= this.requiredRole;
 
     if (isModOrHigher && !this.hasView) {
       this.viewContainer.createEmbeddedView(this.templateRef);

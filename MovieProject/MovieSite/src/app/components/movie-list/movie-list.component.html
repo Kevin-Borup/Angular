@@ -3,8 +3,7 @@
     <img mat-card-image src="{{movie.imgSrc}}}">
     <mat-card-header>{{movie.title}}</mat-card-header>
     <mat-card-subtitle>{{movie.releaseDate}}</mat-card-subtitle>
-<!--    *ngIf="(systemRole$ | async) != SystemRole.Unauthorized"-->
-    <mat-card-actions *appIfMod="(systemRole$ | async) || SystemRole.Unauthorized">
+    <mat-card-actions [appIfRole]="systemRole$" requiredRole="{{SystemRole.Mod}}">
       <button mat-mini-fab (click)="onEditClick(movie)">
         <mat-icon>edit</mat-icon>
       </button>
